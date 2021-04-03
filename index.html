@@ -31,7 +31,7 @@ tr:nth-child(even) {
         {% for res in site.static_files %}
           {% if res.path contains 'resources' %}
             <tr>
-              <td><a href="{{ res.path }}" download>{{ res.path | remove:'/resources/' }}</a></td>
+              <td><a href="{{ res.path | prepend: site.baseurl}}" download>{{ res.path | remove:'/resources/' }}</a></td>
               <td>{{ res.modified_time | date: "%-d %b, %Y" }}</td>
             </tr>
           {% endif %}

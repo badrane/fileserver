@@ -1,4 +1,4 @@
-# Github Pages Fileserver
+# Github Pages Fileserver : https://badrane.github.io/fileserver/
 A simple fileserver which runs on top of Github pages
 - Start Jekyll
 ```bash
