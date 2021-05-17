@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="description" content="documents pour des cours "/>
-    <meta name="keywords" content="badrane, houmadi, document"/>
+    <meta name="keywords" content="badrane, git, document, douchena"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 <style>
 table {
@@ -58,14 +58,12 @@ tr:nth-child(even) {
   </tr>
         {% for res in site.static_files %}
           {% if res.path contains 'college' %}
-          {% unless res.path contains 'exemple' %}
-          {% unless res.path contains 'mes_sources' %}
+          {% if res.path contains 'exemple' %}{% continue %}{% endif %}
+          {% if res.path contains 'mes_sources' %}{% continue %}{% endif %}
             <tr>
               <td><a href="{{ res.path | prepend: site.baseurl}}" download>{{ res.path | remove:'/resources/college/' }}</a></td>
               <td>{{ res.modified_time | date: "%-d %b, %Y" }}</td>
             </tr>
-          {% endunless %}
-          {% endunless %}
           {% endif %}
         {% endfor %}
 </table>
